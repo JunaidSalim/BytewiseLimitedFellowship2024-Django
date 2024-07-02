@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+ 
+    .form-control {
+      border-radius: 20px;
+      height: 25px; 
+    }
+
+    .btn-search {
+      border-radius: 20px;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .weather-info {
+      text-align: center;
+      margin: 5px;
+    }
+
+    .weather-card {
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .weather-icon {
+      font-size: 30px;
+    }
+
+    .flag-icon {
+      width: 30px;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .title {
+      font-size: 48px; /* Larger font size for the title */
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    .navbar-brand {
+      font-size: 50px; /* Larger font size for the navbar brand */
+      text-decoration: none; /* Remove underline */
+      color: #4CAF50;
+    }
+
+    .container-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 90vh;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+
+    /* Custom media query for smaller screens */
+    @media (max-width: 768px) {
+      .container-center {
+        min-height: unset;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Weather Detector</a>
+    </div>
+  </nav>
+  <div class="container container-center">
+    <div class="row justify-content-center weather-info">
+      <div class="col-md-6">
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="city" placeholder="Search for a city">
+            <div class="input-group-append">
+              <button class="btn btn-search" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+        {% if data.country_code %}
+        <div class="weather-card">
+          <h2 class="title">{{ city }}</h2>
+          <p><i class="fas fa-flag flag-icon"></i> Country Code: {{ data.country_code }}</p>
+          <p><i class="fas fa-map-marker-alt weather-icon"></i> Coordinates: {{ data.coordinate }}</p>
+          <p><i class="fas fa-thermometer-half weather-icon"></i> Temperature: {{ data.temp }}</p>
+          <p><i class="fas fa-tachometer-alt weather-icon"></i> Pressure: {{ data.pressure }}</p>
+          <p><i class="fas fa-tint weather-icon"></i> Humidity: {{ data.humidity }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
