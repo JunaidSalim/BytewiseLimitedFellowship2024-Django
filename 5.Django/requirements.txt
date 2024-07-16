@@ -33,7 +33,7 @@ defer==1.0.6
 defusedxml==0.7.1
 distro==1.8.0
 distro-info==1.5+ubuntu0.23.10.1
-Django==4.2.4
+Django==4.2.14
 entrypoints==0.4
 et-xmlfile==1.0.1
 executing==1.2.0
@@ -138,7 +138,7 @@ Send2Trash==1.8.2
 simplejson==3.19.1
 six==1.16.0
 soupsieve==2.4.1
-sqlparse==0.4.2
+sqlparse==0.5.0
 stack-data==0.6.2
 sympy==1.12
 systemd-python==235
