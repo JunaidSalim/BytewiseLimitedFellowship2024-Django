@@ -33,7 +33,7 @@ defer==1.0.6
 defusedxml==0.7.1
 distro==1.8.0
 distro-info==1.5+ubuntu0.23.10.1
-Django==4.2.4
+Django==4.2.14
 entrypoints==0.4
 et-xmlfile==1.0.1
 executing==1.2.0
